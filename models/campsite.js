@@ -1,19 +1,19 @@
 const mongoose = require('mongoose');
-const Schema = moongoose.schema;
+const Schema = mongoose.Schema;
 
 //below is used to create a schema, creating configurations for the doc.
 const campsiteSchema = new Schema({
-    name:{
-        type:String,
-        required:true,
-        unique:true
+    name: {
+        type: String,
+        required: true,
+        unique: true
     },
-    description:{
-        type:String,
-        required:true
+    description: {
+        type: String,
+        required: true
     }
 }, {
-    timestamps:true,
+    timestamps: true,
 
 });
 //second optional argument is used to set configuration options
@@ -21,4 +21,4 @@ const campsiteSchema = new Schema({
 
 const Campsite = mongoose.model('Campsite', campsiteSchema);
 
-module.exports =  Campsite;
+module.exports = Campsite;

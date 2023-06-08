@@ -8,7 +8,7 @@ const connect = mongoose.connect(url, {
     useUnifiedTopology: true
 });
 //connect method returns a promise which allows for chaining.
-.then(() => {
+connect.then(() => {
     console.log('Connected correctly to the server');
 
     const newCampsite = new Campsite({
@@ -26,10 +26,10 @@ const connect = mongoose.connect(url, {
             return Campsite.deleteMany();
         })
         .then(() => {
-            return mongoose.connections.close();
+            return mongoose.connection.close();
         })
         .catch(err => {
             console.log(err);
-            mongoose.connections.close();
-        })
+            mongoose.connection.close();
+        });
 });
